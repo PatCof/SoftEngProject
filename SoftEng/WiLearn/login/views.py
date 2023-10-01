@@ -11,8 +11,19 @@ from django.urls import reverse
 
 
 def main(request):
-    return render(request, 'index.html')
-
+    if request.method == 'POST':
+        email = request.POST['username']
+        password = request.POST['password']
+        user = CustomEmailBackend().authenticate(request, username=email, password=password)
+        print(f"HELLO: {user}")
+        if user is not None:
+            login(request, user=user, backend='login.backends.CustomEmailBackend')
+            return render(request, 'register.html')
+        else:
+            messages.error(request, 'Invalid login credentials. Please try again.')
+            return render(request, 'index.html')
+    else:
+        return render(request, 'index.html')
 
 
 def register(request):
@@ -47,14 +58,13 @@ def login_user(request):
         print(f"HELLO: {user}")
         if user is not None:
             login(request, user=user, backend='login.backends.CustomEmailBackend')
-            # return render(request, 'register.html')
-            admin_url = reverse('admin:index')
-            return render(request, admin_url)
+            return render(request, 'register.html')
         else:
             messages.error(request, 'Invalid login credentials. Please try again.')
 
     else:
         return render(request, 'registration/login.html')
+
     #     form = TeacherModelForm(data=request.POST)
     #     if form.is_valid():
     #         email = form.cleaned_data['email']
