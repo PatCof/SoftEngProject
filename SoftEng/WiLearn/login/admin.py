@@ -6,3 +6,8 @@ from .models import Teachers
 class UserAdmin(admin.ModelAdmin):
     pass
 # admin.site.register(Teachers)
+
+@admin.register(Teachers)
+class UserAdmin(admin.ModelAdmin):
+    pass
+# admin.site.register(Teachers)

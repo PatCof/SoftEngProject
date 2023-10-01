@@ -4,6 +4,16 @@ from .managers import CustomManager
 
 # Create your models here.
 
+    objects = CustomManager()
+
+    def save(self, *args, **kwargs):
+        # Set the password using set_password method
+        if self.password:
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} | {self.department}"
 
 class Teachers(AbstractUser):
     username = None
