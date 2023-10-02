@@ -15,14 +15,31 @@ function scrollToTop() {
     });
 }
 
+// Function to check if the screen width is less than or equal to half of the original screen width
+function isScreenHalfWidth() {
+    return window.innerWidth <= window.screen.width / 2;
+}
+
+// Function to hide or show the image slider based on screen width
+function toggleImageSlider() {
+    const imageSliderContainer = document.getElementById("image-slider-container");
+    if (isScreenHalfWidth()) {
+        imageSliderContainer.style.display = "none";
+    } else {
+        imageSliderContainer.style.display = "block";
+    }
+}
+
 // Attach event listeners
 window.addEventListener("scroll", toggleBackToTop);
 document.getElementById("back-to-top").addEventListener("click", scrollToTop);
 
-// Image slideshow functionality
-const images = ["static/images/image1.jpg",
-                "static/images/image2.jpg",
-                "static/images/image3.jpg"];
+// Check screen width on page load and when the window is resized
+window.addEventListener("load", toggleImageSlider);
+window.addEventListener("resize", toggleImageSlider);
+
+// Image slideshow functionality (unchanged from your original code)
+const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let currentIndex = 0;
 
 function showImage() {

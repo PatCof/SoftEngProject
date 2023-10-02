@@ -18,11 +18,11 @@ class Teachers(AbstractUser):
 #Hello
 ## PROBLEM IS THIS ONE: TRYING TO FIND SOLUTIONS
     #CONCERN: EACH TIME BUBUKSAN SA DJANGO ADMIN ANG ISANG USER, BAGONG HASH NG PASSWORD MANGYAYARI
-    # def save(self, *args, **kwargs):
-    #     # Set the password using set_password method
-    #     if not self.pk or self.password:
-    #         self.set_password(self.password)
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        # Set the password using set_password method
+        if len(self.password) <= 20:
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.email} {self.password} | {self.department}"

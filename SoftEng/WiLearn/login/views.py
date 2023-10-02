@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib import messages
 from .backends import CustomEmailBackend
-from django.urls import reverse
 # Create your views here.
 
 
@@ -19,6 +18,9 @@ def main(request):
             messages.error(request, 'Invalid login credentials. Please try again.')
 
     return render(request, 'index.html')
+
+def courses(request):
+    return render(request, 'courses.html')
 
 
 def logout_user(request):

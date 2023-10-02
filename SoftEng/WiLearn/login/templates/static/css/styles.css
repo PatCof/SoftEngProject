@@ -126,11 +126,13 @@ nav {
     font-family: 'Bebas Neue', sans-serif;
     text-transform: uppercase;
     color: #F14646;
+    margin-top: 40px;
 }
 
 .info {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 20px;
     font-family: 'Kadwa', serif;
     color: #39285C;
     text-align: justify;
@@ -140,7 +142,7 @@ nav {
     font-size: 1rem;
     font-family: 'Lato', sans-serif;
     color: #E48586;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: justify;
 }
 
@@ -433,6 +435,7 @@ form input{
     padding-left: 5px;
     margin: 0 30px;
     width: 500px;
+    font-size: 20px;
 }
 
 /* Style for the form itself */
@@ -442,7 +445,7 @@ form {
 }
 
 .signin-button {
-    margin-top: 30px; /* Adjust the vertical spacing as needed */
+    margin-top: 50px; /* Adjust the vertical spacing as needed */
     text-align: right; /* Align the button to the right within its container */
     background-color:#F09090 ;
     border: 1px solid #4D344C;
@@ -464,14 +467,112 @@ body.popup-open {
     overflow: hidden;
 }
 
+.title-image {
+    vertical-align: middle; /* Align the image vertically in the middle of the line */
+    margin-right: 10px; /* Add some spacing to the right of the image */
+}
 
 /* Additional styles can be added to customize the appearance */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns by default */
+    grid-gap: 20px; /* Adjust the gap between grid items */
+    padding: 40px 160px;
+    background-color: #FDE5EC;
+}
+
+.grid-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.grid-item h2{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #F14646; /* Change this to your desired button color */
+    color: #fff; /* Text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    font-family: 'Lato', sans-serif;
+}
+
+.button-link:hover {
+    background-color: #965959; /* Change this to the hover color you prefer */
+}
+
+/* Media Queries for responsive design */
+@media screen and (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns when viewport width <= 1200px */
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr); /* Single column for phone mode (viewport width <= 768px) */
+    }
+
+    nav {
+        flex-direction: column; /* Stack items vertically for small screens */
+        text-align: center; /* Center-align text for small screens */
+    }
+
+    .logo img {
+        padding-right: 30px; /* Remove right padding for the logo */
+    }
+
+    .left-nav {
+        margin-top: 20px; /* Add margin to separate logo and navigation links */
+    }
+
+    .left-nav a {
+        padding: 10px 0; /* Adjust padding for better spacing on small screens */
+    }
+
+    .right-nav {
+        margin-top: 20px; /* Add margin to separate navigation links and buttons */
+    }
+
+    .offers {
+        grid-template-columns: repeat(1, 1fr) !important; /* Display one item per row for small screens */
+        padding: 50px 20px !important; /* Adjust padding for smaller screens */
+        gap: 20px !important; /* Adjust gap for smaller screens */
+    }
+
+    .mission,
+    .vision {
+        flex: 1;
+        text-align: center;
+        font-family: 'Kadwa', serif;
+        padding: 50px 20px; /* Adjust the padding for smaller screens */
+    }
+
+    .missionvision {
+        flex-direction: column; /* Stack elements vertically for smaller screens */
+        align-items: center; /* Center-align elements */
+    }
+}
 
 @media (max-width: 960px) {
     .offers {
         grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
         padding: 50px 20px; /* Adjust padding for smaller screens */
         gap: 20px;
+    }
+
+    .image-slider {
+        display: none;
     }
 
     .about p {

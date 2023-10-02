@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
+    {% load static%}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kadwa&family=Langar&family=Lato:wght@100;300&family=REM&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
+    <title>Wawawi</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -15,12 +16,15 @@
         <nav>
             <div class="left-nav">
                 <div class="logo">
-                    <img class="logo" src="{% static 'images/logo.png' %}" alt="Your Logo">
+                    <a href="{% url 'main' %}">
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Wawawi">
+                    </a>
                 </div>
+                
                 <ul>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#offers">OFFERS</a></li>
-                    <li><a href="#courses">COURSES</a></li>
+                    <li><a href="{% url 'main' %}#about">ABOUT</a></li>
+                    <li><a href="{% url 'main' %}#offers">OFFERS</a></li>
+                    <li><a href="{% url 'courses' %}">COURSES</a></li>
                 </ul>
             </div>
             <div class="right-nav">
