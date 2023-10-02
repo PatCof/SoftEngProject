@@ -3,7 +3,7 @@ from .models import Teachers
 # Register your models here.
 
 
-@admin.register(Teachers)
-class UserAdmin(admin.ModelAdmin):
-    pass
-# admin.site.register(Teachers)
+class TeachersAdmin(admin.ModelAdmin):
+    admin.site.register(Teachers)
+
+
