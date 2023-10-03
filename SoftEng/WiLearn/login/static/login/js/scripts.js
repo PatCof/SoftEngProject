@@ -39,7 +39,9 @@ window.addEventListener("load", toggleImageSlider);
 window.addEventListener("resize", toggleImageSlider);
 
 // Image slideshow functionality (unchanged from your original code)
-const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+const images = ["static/login/images/image1.jpg",
+                "static/login/images/image2.jpg",
+                "static/login/images/image3.jpg"];
 let currentIndex = 0;
 
 function showImage() {

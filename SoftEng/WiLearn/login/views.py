@@ -13,14 +13,15 @@ def main(request):
         print(f"HELLO: {user}")
         if user is not None:
             login(request, user=user, backend='login.backends.CustomEmailBackend')
-            return render(request, 'register.html')
+            return render(request, 'login/courses.html')
         else:
             messages.error(request, 'Invalid login credentials. Please try again.')
 
-    return render(request, 'index.html')
+    return render(request, 'login/index.html')
+
 
 def courses(request):
-    return render(request, 'courses.html')
+    return render(request, 'login/courses.html')
 
 
 def logout_user(request):
