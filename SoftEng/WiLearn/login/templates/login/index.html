@@ -1,66 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static%}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kadwa&family=Langar&family=Lato:wght@100;300&family=REM&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/png">
-    <title>Wawawi</title>
-    <link rel="stylesheet" href="{% static 'login/css/styles.css' %}">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="left-nav">
-                <div class="logo">
-                    <a href="{% url 'main' %}">
-                        <img class="logo" src="{% static 'images/logo.png' %}" alt="Wawawi">
-                    </a>
-                </div>
-                
-                <ul>
-                    <li><a href="{% url 'main' %}#about">ABOUT</a></li>
-                    <li><a href="{% url 'main' %}#offers">OFFERS</a></li>
-                    <li><a href="{% url 'courses' %}">COURSES</a></li>
-                </ul>
-            </div>
-            <div class="right-nav">
-                <a href="#" class="button" onclick="openLoginPopup()">Wi-Learn</a>
-            </div>
-        </nav>        
-    </header>
-
-    <div id="loginPopup" class="popup">
-        <div class="popup-content">
-            <div class="top">
-            <img src="{% static 'images/logo.png' %}" alt="Your Logo">
-            <h2>Wawawi</h2>
-            <span class="close" onclick="closeLoginPopup()">&times;</span>
-             </div>
-
-            <form method="post">
-                {% csrf_token %}
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit" class="signin-button">Sign In</button>
-            </form>
-            <p class="forgot-password">Forgot Password?</p>
-        </div>
-    </div>
-    
-    <div class="rectangle">
-    </div>
-
-    <div class="next1">
-        <p>Learn now with Wawawi, an interactive learning website for students and professors</p>
-        <button>Enroll Now</button>
-    </div>
-
+{% extends 'login/base.html' %}
+{% load static%}
+{% block content %}
     <div class="rectangle2">
     </div>
     
@@ -68,13 +8,13 @@
         <div class="image-slider">
             <div class="slideshow-container">
                 <div class="mySlides fade">
-                    <img src="{% static 'images/image1.jpg' %}">
+                    <img src="{% static 'login/images/image1.jpg' %}">
                 </div>
                 <div class="mySlides fade">
-                    <img src="{% static 'images/image2.jpg' %}">
+                    <img src="{% static 'login/images/image2.jpg' %}">
                 </div>
                 <div class="mySlides fade">
-                    <img src="{% static 'images/image3.jpg' %}">
+                    <img src="{% static 'login/images/image3.jpg' %}">
                 </div>
             </div>
 
@@ -99,32 +39,32 @@
     <main>
         <section class="offers" id="offers">
             <div class="offer">
-                <img src="{% static '/images/offer.png' %}" alt="Offer 1">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 1">
                 <h2>Seamless Access</h2>
                 <p>Enjoy easy and convenient access to our modules anytime, anywhere, making learning fit into your schedule.</p>
             </div>
             <div class="offer">
-                <img src="{% static 'images/offer.png' %}" alt="Offer 2">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 2">
                 <h2>Interactive Learning</h2>
                 <p>Engage with dynamic content that brings subjects to life through interactive lessons, quizzes, and activities.</p>
             </div>
             <div class="offer">
-                <img src="{% static 'images/offer.png' %}" alt="Offer 3">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 3">
                 <h2>Personalized Experience</h2>
                 <p>Tailor your learning journey with customizable modules and progress tracking to meet your unique educational needs.</p>
             </div>
             <div class="offer">
-                <img src="{% static 'images/offer.png' %}" alt="Offer 4">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 4">
                 <h2>Diverse Subjects</h2>
                 <p>Explore a wide range of subjects and topics, ensuring there's something for everyone, from academics to personal development.</p>
             </div>
             <div class="offer">
-                <img src="{% static 'images/offer.png' %}" alt="Offer 5">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 5">
                 <h2>Timely Updates</h2>
                 <p>Stay up-to-date with the latest content and educational trends as we regularly refresh and expand our module library.</p>
             </div>
             <div class="offer">
-                <img src="{% static 'images/offer.png' %}" alt="Offer 6">
+                <img src="{% static 'login/images/offer.png' %}" alt="Offer 6">
                 <h2>Community Connection</h2>
                 <p>Connect with fellow learners, share insights, and collaborate on projects through our vibrant online learning community.</p>
             </div>
@@ -162,7 +102,4 @@
     <div id="back-to-top" class="back-to-top">
         <a href="#header">↑</a>
     </div>
-    <script src="{% static 'login/js/scripts.js' %}">
-    </script>
-</body>
-</html>
+    {% endblock %}

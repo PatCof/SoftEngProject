@@ -55,7 +55,7 @@ ROOT_URLCONF = 'WiLearn.urls'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'login.backends.CustomEmailBackend',
+    'login.backends.EmailBackend',
 ]
 
 TEMPLATES = [
@@ -130,3 +130,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'login.Teachers'
 
+# LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = '/'
