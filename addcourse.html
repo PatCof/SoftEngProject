@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kadwa&family=Langar&family=Lato:wght@100;300&family=REM&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Wawawi</title>
+</head>
+<body>
+
+<!-- Side Navigation Bar -->
+<nav class="sidenav">
+    <ul>
+        <li>
+            <a href="dashboard.html">
+                <img class="logo" src="logo.png" alt="Your Logo">
+            </a>
+        </li>
+        <li>
+            <a href="profile.html">
+                <i class="fa fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="dashboard.html">
+                <i class="fa fa-tachometer"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span>Courses</span>
+            </a>
+        </li>
+        <li>
+            <a href="activities.html">
+                <i class="fa fa-calendar"></i>
+                <span>Activities</span>
+            </a>
+        </li>
+        <li>
+            <a href="inbox.html">
+                <i class="fa fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Section Content -->
+<section class="content">
+    <div class="header-container">
+        <h1 class="db">DASHBOARD</h1>
+        <h1 class="wl">Wi-Learn</h1>
+    </div>
+</section>
+
+<section class="course-creation">
+    <h1>Create Course</h1>
+    <hr>
+
+
+    <form id="courseCreationForm" action="create_course.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="courseImage">Course Image:</label>
+            <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" name="courseName" required>
+        </div>
+        <div class="form-group">
+            <label for="courseDescription">Course Description:</label>
+            <textarea id="courseDescription" name="courseDescription" required></textarea>
+        </div>
+        <div class="form-grid-container">
+            <div class="form-group">
+                <label for="enrollmentStartDate">Enrollment Start Date</label>
+                <input type="date" id="enrollmentStartDate" name="enrollmentStartDate" required>
+            </div>
+            <div class="form-group">
+                <label for="enrollmentEndDate">Enrollment End Date</label>
+                <input type="date" id="enrollmentStartDate" name="enrollmentStartDate" required>
+            </div>
+            <div class="form-group">
+                <label for="courseStartDate">Course Start Date</label>
+                <input type="date" id="courseStartDate" name="courseStartDate" required>
+            </div>
+            <div class="form-group">
+                <label for="courseEndDate">Course End Date</label>
+                <input type="date" id="courseEndDate" name="courseEndDate" required>
+            </div>
+            <div class="form-group">
+                <label for="labTimeDay">Laboratory Time</label>
+                <input type="text" id="labTimeDay" name="labTimeDay" required>
+            </div>
+            <div class="form-group">
+                <label for="labTimeDay">Laboratory Day</label>
+                <input type="text" id="labTimeDay" name="labTimeDay" required>
+            </div>
+            <div class="form-group">
+                <label for="lectureTimeDay">Lecture Time:</label>
+                <input type="text" id="lectureTimeDay" name="lectureTimeDay" required>
+            </div>
+            <div class="form-group">
+                <label for="lectureTimeDay">Lecture Day:</label>
+                <input type="text" id="lectureTimeDay" name="lectureTimeDay" required>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="button-containers">
+        <button class="cancel-button" onclick="discardCourse()">Cancel</button>
+        <button class="save-button">Save</button>
+        <button class="publish-button">Publish</button>
+    </div>
+</section>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
