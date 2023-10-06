@@ -423,7 +423,7 @@ input {
 .password-container {
     position: relative; /* Create a relative positioning context */
   }
-
+  
   form label {
     display: block;
     text-align: left;
@@ -431,7 +431,7 @@ input {
     margin: 40px 0 2px 0;
     color: #817373;
   }
-
+  
   form input {
     border: 2px solid #39285C;
     background-color: white;
@@ -440,7 +440,7 @@ input {
     width: 500px;
     font-size: 20px;
   }
-
+  
   .fa-eye {
     position: absolute;
     top: 50%; /* Adjust this value to vertically center the icon */
@@ -449,7 +449,7 @@ input {
     cursor: pointer;
     color: lightgray;
   }
-
+  
 
 /* Style for the form itself */
 form {
@@ -579,8 +579,8 @@ body.popup-open {
     form input {
         width: 320px;
       }
-
-      .popup-content {
+    
+      .popup-content {   
         width: 400px; /* Set the desired width */
     }
 }

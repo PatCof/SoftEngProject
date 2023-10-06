@@ -47,9 +47,12 @@
             <form method="post">
                 {% csrf_token %}
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required autocomplete="email">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                    <i class="fa-solid fa-eye" id="eye" onclick="togglePasswordVisibility()"></i>
+                </div>
                 <button type="submit" class="signin-button">Sign In</button>
             </form>
             <p class="forgot-password">Forgot Password?</p>
