@@ -92,6 +92,17 @@ body{
     padding: 15px;
 }
 
+.mail-course-container{
+   display: inline-block;
+    margin: auto 3% auto 0%;
+    
+}
+
+.mail-inbox-container{
+    display: inline-block;
+    margin: auto 3% auto 0%;
+    
+}
 
 
 
