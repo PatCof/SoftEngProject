@@ -82,6 +82,19 @@ body{
 }
 
 
+
+
+
+
+.mail-content{
+    background-color: #d2cccf;
+    margin-left: 70px; /* Add a margin to move the content to the right of the sidenav */
+    padding: 15px;
+}
+
+
+
+
 /* Style the container for the headings */
 .header-container {
     display: flex;
@@ -105,3 +118,60 @@ h1.wl {
     font-size: 35px; /* Font size */
     margin: 0; /* Remove any default margin */
 }
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* The search field */
+  #myInput {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 10px 20px 10px 50px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* The search field when it gets focus/clicked on */
+  #myInput:focus {outline: 1px solid #ddd;}
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 291px;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    border: 0.4px solid rgb(210, 203, 211);
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;} 
