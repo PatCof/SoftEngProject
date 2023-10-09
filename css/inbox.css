@@ -58,3 +58,50 @@ body{
     width: 24px; /* Set the width to match the icon size */
     height: 24px; /* Set the height to match the icon size */
 }
+
+.content{
+    background-color: #5F62B6;
+    margin-left: 70px; /* Add a margin to move the content to the right of the sidenav */
+    padding: 10px;
+}
+
+.dashboard-content{
+    background-color: white;
+    margin-left: 70px; /* Add a margin to move the content to the right of the sidenav */
+    padding: 20px 100px;
+}
+
+.course-creation{
+    background-color: white;
+    margin-left: 70px; /* Add a margin to move the content to the right of the sidenav */
+    padding: 20px 100px;
+}
+
+.course-creation h1 {
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* Style the container for the headings */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 10px; Add padding for spacing */
+}
+
+/* Style the "Dashboard" heading */
+h1.db{
+    color: white; /* Text color */
+    font-family: 'Lato', sans-serif; /* Font family */
+    font-size: 25px; /* Font size */
+    margin: 0; /* Remove any default margin */
+}
+
+/* Style the "Wi-Learn" heading */
+h1.wl {
+    color: #FDE5EC; /* Text color */
+    font-family: 'Langar', cursive; /* Font family */
+    font-size: 35px; /* Font size */
+    margin: 0; /* Remove any default margin */
+}
