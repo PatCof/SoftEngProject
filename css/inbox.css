@@ -1,5 +1,8 @@
-body{
+html, body{
     margin: 0;
+    height: 100%;
+    overflow: hidden;
+    
 }
 /* Style the side navigation bar */
 .sidenav {
@@ -90,6 +93,7 @@ body{
     background-color: #d2cccf;
     margin-left: 70px; /* Add a margin to move the content to the right of the sidenav */
     padding: 15px;
+    border-bottom: 1px solid #918d9b;
 }
 
 .mail-course-container{
@@ -199,3 +203,27 @@ h1.wl {
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;} 
+
+
+
+  /* for the messages  column */
+  .message-content {
+    margin: 0px 0px 0px 70px;
+    display: grid;
+    float: left;
+    background-color: #e0dfe2;
+    height: 100%;
+    width: 30%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index:0;
+  }
+
+.message-content-wrapper{
+    border-bottom: 1px solid #77747e;
+}
+
+  .message-item {
+    margin-left: 15%;
+    
+  }
