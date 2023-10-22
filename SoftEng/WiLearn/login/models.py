@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-# from .managers import TeacherManager
 
 
 # Create your models here.
@@ -11,8 +10,6 @@ class Teachers(AbstractUser):
     department = models.CharField(max_length=255, default="")
 
     REQUIRED_FIELDS = ['email']
-
-    # objects = TeacherManager()
 
 
 

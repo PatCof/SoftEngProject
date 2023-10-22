@@ -1,39 +1,78 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout
+from django.contrib.auth import login
 from django.contrib import messages
 from .backends import EmailBackend
+from .forms import LoginForm
+# from lms.views import dashboard
+from django.conf import settings
+from django.urls import reverse
+
 # Create your views here.
 
 
 def main(request):
+    next_param = request.GET.get('next', reverse('lms:dashboard'))
+    print(f"Auth: {request.user.is_authenticated}")
+
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = EmailBackend().authenticate(request, username=email, password=password)
-        print(f"HELLO: {user}")
-        if user is not None:
-            login(request, user=user, backend='login.backends.EmailBackend')
-            return render(request, 'login/courses.html')
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = EmailBackend().authenticate(request, username=email, password=password)
+            if user is not None:
+                print(f"USER:{user}")
+                login(request, user=user, backend='login.backends.EmailBackend')
+                print(request.user.is_authenticated)
+                return redirect(next_param)
+
         else:
-            messages.error(request, 'Invalid login credentials. Please try again.')
-    return render(request, 'login/index.html')
+            return render(request, 'login/index.html', {'form': form})
+            # CONCERN: SINCE POPUP NOT SURE PAANO IPAPAKITA NA MAY ERROR SA FORMS
+    else:
+        form = LoginForm()
+        return render(request, 'login/index.html', {'form': form})
+
+        # return render(request, 'login/index.html', {'form': form, 'next': next_param})
+
+    # if request.user.is_authenticated:
+    #     return redirect(settings.LOGIN_REDIRECT_URL)
+    #
+    # if request.method == 'POST':
+    #     form = LoginForm(request.POST)
+    #     if form.is_valid():
+    #         email = form.cleaned_data['email']
+    #         password = form.cleaned_data['password']
+    #         user = EmailBackend().authenticate(request, username=email,password=password)
+    #         if user:
+    #             login(request, user=user)
+    #             return redirect
+
+
+
+
+
+
 
 
 def courses(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = EmailBackend().authenticate(request, username=email, password=password)
-        print(f"HELLO: {user}")
-        if user is not None:
-            login(request, user=user, backend='login.backends.EmailBackend')
-            return render(request, 'login/courses.html')
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = EmailBackend().authenticate(request, username=email, password=password)
+            if user:
+                login(request, user=user, backend='login.backends.EmailBackend')
+                return redirect('lms:dashboard')
         else:
+            form = LoginForm()
             messages.error(request, 'Invalid login credentials. Please try again.')
-    return render(request, 'login/courses.html')
+            return render(request, 'login/index.html', {'form': form})
+
+    form = LoginForm()
+    return render(request, 'login/index.html', {'form': form})
 
 
-# def logout_user(request):
-#     logout(request)
-#     return redirect(main)
 

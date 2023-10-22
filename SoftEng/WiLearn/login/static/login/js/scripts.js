@@ -82,7 +82,7 @@ function showSlide(index) {
 }
 
 // JavaScript function to open the login popup
-function openLoginPopup() {
+function openLoginPopup(event) {
     var popup = document.getElementById('loginPopup');
     popup.style.display = 'block';
     document.body.classList.add('popup-open'); // Add the class
