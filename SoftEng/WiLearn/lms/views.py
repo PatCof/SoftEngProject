@@ -80,6 +80,10 @@ def generate_course_id():
     print(random_id)
     print(Courses.objects.filter(course_id=random_id))
     # TODO# 1 FIX LOOP FOR RANDOM COURSE_ID TO PREVENT DUPLICATE VALUES
+    if not Courses.objects.filter(course_id=random_id):
+        random_id = randint(10000, 99999)
+        
+
     # if not Courses.objects.filter(course_id=random_id):
     #     while True:
     #         random_id = randint(10000, 99999)

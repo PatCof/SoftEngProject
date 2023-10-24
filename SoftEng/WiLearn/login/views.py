@@ -8,9 +8,9 @@ from .forms import LoginForm
 from django.conf import settings
 from django.urls import reverse
 
+
+
 # Create your views here.
-
-
 def main(request):
     next_param = request.GET.get('next', reverse('lms:dashboard'))
     print(f"Auth: {request.user.is_authenticated}")
@@ -48,12 +48,6 @@ def main(request):
     #         if user:
     #             login(request, user=user)
     #             return redirect
-
-
-
-
-
-
 
 
 def courses(request):
