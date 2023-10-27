@@ -4,18 +4,12 @@ from django_quill.forms import QuillFormField
 
 
 class AnnouncementForm(forms.ModelForm):
-    Announcement_Title = forms.CharField()
-    Announcement_Content = QuillFormField()
-    # text = forms.CharField(widget=forms.Textarea(attrs={'id':'quill-editor'}))
+    title = forms.CharField()
+    text = QuillFormField()
 
     class Meta:
         model = Announcements
-        fields = ['Announcement_Title', 'Announcement_Content']
-        # fields = (
-        #           'title',
-        #           'text'
-        #         )
-        # fields = ['title', 'text']
+        fields = ['title', 'text']
 
 
 class CourseForm(forms.ModelForm):

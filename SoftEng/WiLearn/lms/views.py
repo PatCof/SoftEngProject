@@ -15,7 +15,9 @@ def dashboard(request):
     user = request.user
     print(user.id)
     course = Courses.objects.filter(user_id=user.id)
-    return render(request, 'lms/dashboard.html', {'course': course})
+    announcement = Announcements.objects.filter(user_id=user.id)
+
+    return render(request, 'lms/dashboard.html', {'course': course, 'announcement': announcement})
 
 
 @login_required
@@ -28,12 +30,16 @@ def post_announcements(request):
     if request.method == 'POST':
         announcement_form = AnnouncementForm(request.POST)
         if announcement_form.is_valid():
-            title = announcement_form.cleaned_data['Announcement_Title']
-            text = announcement_form.cleaned_data['Announcement_Content']
-            print(f"{title} + {text}")
-            a = Announcements(title=title, text=text)
-            a.save()
-            return redirect('dashboard')
+            user = request.user
+            teacher = User.objects.get(email=user.email)
+            announcement = announcement_form.save(commit=False)
+
+            title = announcement_form.cleaned_data['title']
+            # text = announcement_form.cleaned_data['text']
+            announcement.title = title
+            announcement.user = teacher
+            announcement.save()
+            return redirect('lms:dashboard')
         else:
             print(announcement_form)
             print(announcement_form.errors)
@@ -41,7 +47,6 @@ def post_announcements(request):
     form = AnnouncementForm()
     return render(request, 'lms/postannouncement.html', {'form': form})
 
-    # return render(request, 'lms/postannouncement.html', {'form': form})
 
 
 @login_required
@@ -67,14 +72,6 @@ def add_course(request):
     form = CourseForm()
     return render(request, 'lms/addcourse.html', {'form': form})
 
-# def generate_course_id():
-#     random_id = randint(10000, 99999)
-#     print(random_id)
-#     flag = True
-#     if Courses.objects.filter(course_id= random_id):
-
-
-#
 def generate_course_id():
     random_id = randint(10000, 99999)
     print(random_id)
@@ -82,7 +79,6 @@ def generate_course_id():
     # TODO# 1 FIX LOOP FOR RANDOM COURSE_ID TO PREVENT DUPLICATE VALUES
     if not Courses.objects.filter(course_id=random_id):
         random_id = randint(10000, 99999)
-        
 
     # if not Courses.objects.filter(course_id=random_id):
     #     while True:
