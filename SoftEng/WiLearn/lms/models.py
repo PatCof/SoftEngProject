@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from django_quill.fields import QuillField
-from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -13,7 +12,7 @@ class Announcements(models.Model):
 
 class Courses(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    course_id = models.PositiveSmallIntegerField(unique=True)
+    course_id = models.CharField(unique=True,max_length=255)
     img = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=255)
     desc = models.TextField(max_length=255)

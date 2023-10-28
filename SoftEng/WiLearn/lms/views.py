@@ -8,6 +8,8 @@ from PIL import Image
 
 # Create your views here.
 User = get_user_model()
+COMPARISON_DICT = {10: "00000", 100: "0000", 1000: "000", 10000: "00", 100000: "0"}
+
 
 @login_required
 def dashboard(request):
@@ -48,7 +50,6 @@ def post_announcements(request):
     return render(request, 'lms/postannouncement.html', {'form': form})
 
 
-
 @login_required
 def add_course(request):
     if request.method == 'POST':
@@ -58,10 +59,17 @@ def add_course(request):
             user = request.user
             teacher = User.objects.get(email=user.email)
             if teacher is not None:
+                last = Courses.objects.all().last()
+                last.id += 1
                 course = course_form.save(commit=False)
                 course.user = teacher
-                c_id = generate_course_id()
-                course.course_id = c_id
+                for key,val in COMPARISON_DICT.items():
+                    if last.id < key:
+                        course.course_id = f"{teacher.last_name}.{val}{last.id}"
+                        break
+                    elif last.id >= 100000:
+                        course.course_id = f"{teacher.last_name}.{last.id}"
+                        break
                 course.save()
 
             return redirect('lms:dashboard')
@@ -72,21 +80,7 @@ def add_course(request):
     form = CourseForm()
     return render(request, 'lms/addcourse.html', {'form': form})
 
-def generate_course_id():
-    random_id = randint(10000, 99999)
-    print(random_id)
-    print(Courses.objects.filter(course_id=random_id))
-    # TODO# 1 FIX LOOP FOR RANDOM COURSE_ID TO PREVENT DUPLICATE VALUES
-    if not Courses.objects.filter(course_id=random_id):
-        random_id = randint(10000, 99999)
 
-    # if not Courses.objects.filter(course_id=random_id):
-    #     while True:
-    #         random_id = randint(10000, 99999)
-    #         print(random_id)
-    #         if Courses.objects.filter(course_id=random_id):
-    #             break
-    return random_id
 
 
 # TODO#2: FIX ADMIN-SIDE CREATE USER (ADD EMAIL FIELD)

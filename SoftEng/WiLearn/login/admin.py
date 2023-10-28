@@ -11,13 +11,5 @@ class TeachersAdmin(UserAdmin):
         ("Teacher's Information", {'fields': ('first_name', 'last_name', 'username', 'email', 'password',)}),
          )
 
-    # add_fieldsets = (
-    #     ("Teacher's Information", {'fields': ('first_name', 'last_name', 'email', 'password','username')}),
-    # )
-    #
-    # def add_view(self, request, form_url='', extra_context=None):
-    #     self.fieldsets = self.add_fieldsets
-    #     return super().add_view(request, form_url, extra_context)
-
 
 admin.site.register(Teachers, TeachersAdmin)
