@@ -12,11 +12,6 @@ class Teachers(AbstractUser):
     REQUIRED_FIELDS = ['email']
 
 
-
-## PROBLEM IS THIS ONE: TRYING TO FIND SOLUTIONS
-    #CONCERN: EACH TIME BUBUKSAN SA DJANGO ADMIN ANG ISANG USER, BAGONG HASH NG PASSWORD MANGYAYARI
-
-    ##If ganto format, once lang siya ihash since passwords are less than 20
     def save(self, *args, **kwargs):
         if len(self.password) <= 20:
             self.set_password(self.password)
