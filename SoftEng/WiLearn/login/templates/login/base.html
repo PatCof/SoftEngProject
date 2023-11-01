@@ -56,8 +56,8 @@
                 {% endif %}
                 <div class="password-container">
                     {{ form.password.label_tag }}
-                    {{ form.password }}
                     <i class="fa-solid fa-eye" id="eye" onclick="togglePasswordVisibility()"></i>
+                    {{ form.password }}
                 </div>
 
                 <input type="hidden" name="next" value="{{ next }}">

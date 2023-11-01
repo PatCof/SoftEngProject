@@ -11,11 +11,6 @@ class AnnouncementForm(forms.ModelForm):
     class Meta:
         model = Announcements
         fields = ['Announcement_Title', 'Announcement_Content']
-        # fields = (
-        #           'title',
-        #           'text'
-        #         )
-        # fields = ['title', 'text']
 
 
 class CourseForm(forms.ModelForm):

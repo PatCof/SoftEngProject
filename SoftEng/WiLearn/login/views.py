@@ -4,7 +4,6 @@ from django.contrib.auth import login
 from django.contrib import messages
 from .backends import EmailBackend
 from .forms import LoginForm
-# from lms.views import dashboard
 from django.conf import settings
 from django.urls import reverse
 
@@ -34,20 +33,6 @@ def main(request):
         form = LoginForm()
         return render(request, 'login/index.html', {'form': form})
 
-        # return render(request, 'login/index.html', {'form': form, 'next': next_param})
-
-    # if request.user.is_authenticated:
-    #     return redirect(settings.LOGIN_REDIRECT_URL)
-    #
-    # if request.method == 'POST':
-    #     form = LoginForm(request.POST)
-    #     if form.is_valid():
-    #         email = form.cleaned_data['email']
-    #         password = form.cleaned_data['password']
-    #         user = EmailBackend().authenticate(request, username=email,password=password)
-    #         if user:
-    #             login(request, user=user)
-    #             return redirect
 
 
 def courses(request):
@@ -67,6 +52,5 @@ def courses(request):
 
     form = LoginForm()
     return render(request, 'login/index.html', {'form': form})
-
 
 

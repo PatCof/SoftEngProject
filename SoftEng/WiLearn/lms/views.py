@@ -67,14 +67,10 @@ def add_course(request):
     form = CourseForm()
     return render(request, 'lms/addcourse.html', {'form': form})
 
-# def generate_course_id():
-#     random_id = randint(10000, 99999)
-#     print(random_id)
-#     flag = True
-#     if Courses.objects.filter(course_id= random_id):
 
 
-#
+
+
 def generate_course_id():
     random_id = randint(10000, 99999)
     print(random_id)
@@ -93,4 +89,7 @@ def generate_course_id():
     return random_id
 
 
-# TODO#2: FIX ADMIN-SIDE CREATE USER (ADD EMAIL FIELD)
+
+@login_required
+def profile(request):
+    return render(request, 'lms/profile.html')
