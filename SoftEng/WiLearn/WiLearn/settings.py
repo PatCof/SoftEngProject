@@ -137,3 +137,21 @@ LOGIN_URL = 'login:main'
 LOGIN_REDIRECT_URL = 'lms:dashboard'
 
 
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'toolbar': [
+                ['bold', 'italic', 'underline'],
+                [{ 'align': [] }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                ['link', 'image', 'video'],
+                ['clean'],
+                [{ 'header': [1, 2, 3, False] }],
+                ['blockquote'],
+                ['file']
+            ]
+        },
+        'placeholder': 'Compose your announcement...',
+    }
+}

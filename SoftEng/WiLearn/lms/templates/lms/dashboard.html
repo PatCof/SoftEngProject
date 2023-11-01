@@ -95,7 +95,7 @@
                 <div class="course">
                     <img src="{% get_media_prefix %}{{ c.img }}" alt="Course 2">
                     <p class="course-id">Course ID: {{ c.course_id }}</p>
-                    <p class="course-name">Course Name: {{c.name}}</p>
+                    <p class="course-name">Course Name: {{ c.name }}</p>
                     <p>Time</p>
                     <p>date</p>
                 </div>
@@ -140,7 +140,16 @@
             <h3 class="announcement-title">Announcement 3</h3>
             <p class="announcement-description">Description for Announcement 3.</p>
         </div>
-        <!-- Add more announcements here -->
+
+        {% if announcement %}
+            {% for a in announcement %}
+                <div class="announcement">
+                    <h3 class="announcement-title">ANNOUNCEMENT: {{ a.title }}</h3>
+                    <p class="announcement-description">{{ a.text.html| safe }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+
     </div>
 </section>
 
